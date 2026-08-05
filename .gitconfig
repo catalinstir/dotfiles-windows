@@ -130,3 +130,4 @@
 	pushInsteadOf = git://gitlab.com/
 [credential "helperselector"]
 	selected = manager
+
