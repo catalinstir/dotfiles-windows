@@ -1,1 +1,1 @@
-vim.cmd("colorscheme moonfly")
+vim.cmd("colorscheme catppuccin-latte")

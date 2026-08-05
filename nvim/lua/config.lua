@@ -13,4 +13,4 @@ require("catppuccin").setup {
     },
   },
 }
-vim.cmd.colorscheme "moonfly"
+pcall(require, "current-theme")
