@@ -6,9 +6,6 @@ return {
   keys = {
     { "<leader>bp", "<cmd>BufferLinePick<cr>", desc = "Pick Buffer" },
     { "<leader>bc", "<cmd>BufferLinePickClose<cr>", desc = "Pick Close Buffer" },
-    { "<leader>bD", "<cmd>BufferLineCloseOthers<cr>", desc = "Close Other Buffers" },
-    { "<Tab>", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
-    { "<S-Tab>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev Buffer" },
     { "]b", "<cmd>BufferLineMoveNext<cr>", desc = "Move Buffer Right" },
     { "[b", "<cmd>BufferLineMovePrev<cr>", desc = "Move Buffer Left" },
   },
@@ -16,8 +13,12 @@ return {
     options = {
       mode = "buffers",
       numbers = "none",
-      close_command = "bdelete! %d",
-      right_mouse_command = "bdelete! %d",
+      close_command = function(bufnr)
+        require("mini.bufremove").delete(bufnr)
+      end,
+      right_mouse_command = function(bufnr)
+        require("mini.bufremove").delete(bufnr)
+      end,
       left_mouse_command = "buffer %d",
       indicator = { style = "icon", icon = "▎" },
       buffer_close_icon = "󰅖",

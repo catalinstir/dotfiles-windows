@@ -19,11 +19,12 @@ local options = {
   shiftwidth = 4,
   expandtab = true,
   softtabstop = 4,
-  smartindent = true,
+  inccommand = "split", -- live preview of :s substitutions in a split
+  confirm = true, -- ask to save instead of failing on :q with unsaved changes
+  timeoutlen = 300,
+  winborder = "rounded", -- default border for every floating window (LSP hover, diagnostics, ...)
 }
 
 for name, value in pairs(options) do
   vim.opt[name] = value
 end
-
-vim.g.deprecation_warnings = false
